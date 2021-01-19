@@ -74,6 +74,11 @@ def to_camel_case(underscore_str):
     tmp_str = underscore_str[:]
     camelcase_str = ""
 
+    if tmp_str.find("_") == -1:
+        if tmp_str[0].isupper():
+            tmp_str = tmp_str[0].lower() + tmp_str[1:]
+        return tmp_str
+
     tmp_str = tmp_str.lower()
     while (tmp_str.find("__") != -1):
         tmp_str = tmp_str.replace("__", "_")
